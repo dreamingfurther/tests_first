@@ -10,9 +10,9 @@ class Car
   end
 
   def highbeams
-    if status == 'running' && lights == 'on'
+    if running? && !highbeams_on?
       @lights = 'highbeam'
-    elsif status == 'running' && lights == 'highbeam'
+    elsif running? && highbeams_on?
       @lights = 'on'
     else
       'cannot turn on while car is off'
@@ -20,4 +20,14 @@ class Car
   end
 
   attr_accessor :status, :lights
+
+  private
+
+  def running?
+    status == 'running'
+  end
+
+  def highbeams_on?
+    lights == 'highbeam'
+  end
 end
