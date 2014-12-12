@@ -8,17 +8,17 @@ describe Car do
   end
 
   describe '#status' do
+    let(:car) { Car.new }
+
     context 'when the car is running' do
-      it 'returns the status of the car' do
-        car = Car.new
+      it 'returns the status of the car as running' do
         car.start
         expect(car.status).to eq 'running'
       end
     end
 
     context 'when the car is not running' do
-      it 'returns the status of the car' do
-        car = Car.new
+      it 'returns the status of the car as off' do
         expect(car.status).to eq 'off'
       end
     end
