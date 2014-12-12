@@ -1,9 +1,9 @@
 class Car
   def start
-    'running'
+    @status = 'running'
   end
 
   def status
-    'running'
+    @status ||= 'off'
   end
 end
