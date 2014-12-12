@@ -1,4 +1,15 @@
+class Seat
+end
+
 class Car
+  def airbag_on?(seat)
+    seat.seat_belt.passenger.weight >= 50
+  end
+
+  def seat
+    @seat ||= Seat.new
+  end
+
   def initialize
     @status = 'off'
     @lights = 'off'

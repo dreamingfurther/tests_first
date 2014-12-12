@@ -3,6 +3,35 @@ require_relative './spec_helper'
 describe Car do
   let(:car) { Car.new }
 
+  describe 'airbag_on?' do
+    let(:seat) { double }
+    let(:seat_belt) { double }
+    let(:passenger) { double }
+
+    before do
+      allow(Seat).to receive(:new).and_return(seat)
+      allow(seat).to receive(:seat_belt).and_return(seat_belt)
+      allow(seat_belt).to receive(:passenger).and_return(passenger)
+      allow(passenger).to receive(:weight).and_return(weight)
+    end
+
+    context 'when the passenger weight is over 50' do
+      let(:weight) { 50 }
+
+      it 'returns true' do
+        expect(car.airbag_on?(seat)).to be true
+      end
+    end
+
+    context 'when the passenger weight is under 50' do
+      let(:weight) { 49 }
+
+      it 'returns false' do
+        expect(car.airbag_on?(seat)).to be false
+      end
+    end
+  end
+
   describe '#start' do
     it 'sets the car as running' do
       expect(car.start).to eq 'running'
