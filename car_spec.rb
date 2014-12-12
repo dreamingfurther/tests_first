@@ -42,21 +42,26 @@ describe Car do
   describe '#highbeams' do
     context 'when the car is running' do
       context 'when the highbeams are off' do
-        xit 'turns the highbeams on' do
-
+        it 'turns the highbeams on' do
+          car.start
+          car.highbeams
+          expect(car.lights).to eq 'highbeam'
         end
       end
 
       context 'when the highbeams are on' do
-        xit 'turns the highbeams off' do
-
+        it 'turns the highbeams off' do
+          car.start
+          car.highbeams
+          car.highbeams
+          expect(car.lights).to eq 'on'
         end
       end
     end
 
     context 'when the car is off' do
-      xit 'tells us the car is off so we cant turn highbeams on' do
-
+      it 'tells us the car is off so we cant turn highbeams on' do
+        expect(car.highbeams).to eq 'cannot turn on while car is off'
       end
     end
   end
