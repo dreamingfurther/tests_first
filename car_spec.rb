@@ -8,10 +8,19 @@ describe Car do
   end
 
   describe '#status' do
-    it 'returns the status of the car' do
-      car = Car.new
-      car.start
-      expect(car.status).to eq 'running'
+    context 'when the car is running' do
+      it 'returns the status of the car' do
+        car = Car.new
+        car.start
+        expect(car.status).to eq 'running'
+      end
+    end
+
+    context 'when the car is not running' do
+      it 'returns the status of the car' do
+        car = Car.new
+        expect(car.status).to eq 'off'
+      end
     end
   end
 end
