@@ -1,15 +1,15 @@
 require_relative './spec_helper'
 
 describe Car do
+  let(:car) { Car.new }
+
   describe '#start' do
     it 'sets the car as running' do
-      expect(Car.new.start).to eq 'running'
+      expect(car.start).to eq 'running'
     end
   end
 
   describe '#status' do
-    let(:car) { Car.new }
-
     context 'when the car is running' do
       it 'returns the status of the car as running' do
         car.start
@@ -26,14 +26,15 @@ describe Car do
 
   describe '#lights' do
     context 'when the car is running' do
-      xit 'the lights are on' do
-
+      it 'the lights are on' do
+        car.start
+        expect(car.lights).to eq 'on'
       end
     end
 
     context 'when the car is not running' do
-      xit 'the lights are off' do
-
+      it 'the lights are off' do
+        expect(car.lights).to eq 'off'
       end
     end
   end
