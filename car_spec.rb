@@ -23,4 +23,40 @@ describe Car do
       end
     end
   end
+
+  describe '#lights' do
+    context 'when the car is running' do
+      xit 'the lights are on' do
+
+      end
+    end
+
+    context 'when the car is not running' do
+      xit 'the lights are off' do
+
+      end
+    end
+  end
+
+  describe '#highbeams' do
+    context 'when the car is running' do
+      context 'when the highbeams are off' do
+        xit 'turns the highbeams on' do
+
+        end
+      end
+
+      context 'when the highbeams are on' do
+        xit 'turns the highbeams off' do
+
+        end
+      end
+    end
+
+    context 'when the car is off' do
+      xit 'tells us the car is off so we cant turn highbeams on' do
+
+      end
+    end
+  end
 end
